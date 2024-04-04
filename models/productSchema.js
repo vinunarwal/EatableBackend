@@ -7,7 +7,7 @@ const productSchema = new mongoose.Schema({
   type: String,
   status: String,
   discount: Number,
-  userId: String,
+  //userId: String,
   rating: String,
 });
 
