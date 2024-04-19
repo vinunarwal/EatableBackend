@@ -30,7 +30,8 @@ const addProduct = async (req, res) => {
    }
 };
 
-const getProducts = async ( res) => {
+const getProducts = async (req, res) => {
+   console.log("inside getProducts");
    try {
       const products = await Products.find();
       res.status(200).json({ products });
