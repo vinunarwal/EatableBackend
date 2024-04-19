@@ -2,31 +2,31 @@ const { Products } = require('../models/productSchema')
 
 const addProduct = async (req, res) => {
    try {
-      const { name, price, description, type, status, discount, userId, rating, likes } = req.body;
+       const { name, price, description, type, status, discount, userId, rating, image_URL } = req.body;
 
-      const newProduct = new Products({
-         name,
-         price,
-         description,
-         type,
-         status,
-         discount,
-         userId,
-         rating,
-         likes,
-      });
+       const newProduct = new Products({
+           name,
+           price,
+           description,
+           type,
+           status,
+           discount,
+           userId,
+           rating,
+           imageUrl: image_URL // Save image URL in imageUrl field
+       });
 
-      await newProduct.save();
+       await newProduct.save();
 
-      res.status(201).json(
-         {
-            message: 'Product added successfully',
-            product: newProduct
-         }
-      );
+       res.status(201).json(
+           {
+               message: 'Product added successfully',
+               product: newProduct
+           }
+       );
    } catch (error) {
-      console.error('Error adding product:', error);
-      res.status(500).json({ message: 'Internal server error' });
+       console.error('Error adding product:', error);
+       res.status(500).json({ message: 'Internal server error' });
    }
 };
 

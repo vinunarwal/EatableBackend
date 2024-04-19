@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const conn = async () => {
     try {
         const connect = await mongoose.connect("mongodb://127.0.0.1:27017/ProductDetails")
-        console.log("DB Connect",
+        console.log("DB Connected",
             connect.connection.host,
         );
     }
